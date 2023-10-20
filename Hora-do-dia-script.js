@@ -24,10 +24,14 @@ function carregar() {
     }
 }
 function mudar() {
-    var mudar = window.confirm("Deseja alterar a hora para mudar o estilo da página?")
+    var mudar = window.confirm("Deseja alterar somente a hora para mudar o estilo da página?")
     if (mudar == true) {
         var alterar = window.prompt("Hora desejada:")
-        hora = parseInt(alterar) 
-        carregar()
+        hora = parseInt(alterar)
+        if (hora < 0 || hora > 24) {
+            window.alert("Erro: A hora deve estar entre 0 a 24.")
+        } else {
+            carregar()
+        }
     }
 }
